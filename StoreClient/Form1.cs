@@ -68,6 +68,17 @@ namespace StoreClient
                     dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantity", DataPropertyName = "Quantity", Name = "Quantity" });
                     dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Description", DataPropertyName = "Description", Name = "Description" });
 
+                    //set the column width
+                    dgvItems.Columns["Id"].Width = 50;
+                    dgvItems.Columns["Name"].Width = 185;
+                    dgvItems.Columns["Price"].Width = 100;
+                    dgvItems.Columns["Quantity"].Width = 70;
+                    dgvItems.Columns["Description"].Width = 190;
+
+                    //hide id column
+                    dgvItems.Columns["Id"].Visible = false;
+
+
 
                     // Create the Edit Button Column
                     DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
@@ -116,6 +127,8 @@ namespace StoreClient
         private void Form1_Load(object sender, EventArgs e)
         {
             LoadData();
+
+            txtID.Visible = false;
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
