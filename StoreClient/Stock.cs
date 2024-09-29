@@ -12,9 +12,9 @@ using System.Web.Script.Serialization;
 
 namespace StoreClient
 {
-    public partial class Form1 : Form
+    public partial class Stock : Form
     {
-        public Form1()
+        public Stock()
         {
             InitializeComponent();
         }
@@ -77,7 +77,6 @@ namespace StoreClient
 
                     //hide id column
                     dgvItems.Columns["Id"].Visible = false;
-
 
 
                     // Create the Edit Button Column
@@ -176,6 +175,13 @@ namespace StoreClient
                 LoadData();
             else
                 MessageBox.Show("Fail to Delete");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Home home = new Home();
+            home.Show();
         }
     }
 }
