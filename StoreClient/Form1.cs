@@ -45,19 +45,73 @@ namespace StoreClient
         {
             string url = "https://localhost:7135/api/Stock";
             HttpClient client = new HttpClient();
-            var resTask = client.GetAsync(url);
-            resTask.Wait();
-            var result = resTask.Result;
-            if (result.IsSuccessStatusCode)
+
+            try
             {
-                var readTask = result.Content.ReadAsStringAsync();
-                readTask.Wait();
-                var items= readTask.Result;
-                dgvItems.DataSource = null;
-                dgvItems.DataSource = (new JavaScriptSerializer()).
-                                        Deserialize<List<Item>>(items);
+                var response = client.GetAsync(url).Result;
+
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonData = response.Content.ReadAsStringAsync().Result;
+                    List<Item> items = (new JavaScriptSerializer()).Deserialize<List<Item>>(jsonData);
+
+                    dgvItems.DataSource = null;
+                    dgvItems.Rows.Clear();
+                    dgvItems.Columns.Clear();
+
+                    dgvItems.AutoGenerateColumns = false;
+
+                    // Add your existing columns
+                    dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "ID", DataPropertyName = "Id", Name = "Id" });
+                    dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Name", DataPropertyName = "Name", Name = "Name" });
+                    dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Price", DataPropertyName = "Price", Name = "Price" });
+                    dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Quantity", DataPropertyName = "Quantity", Name = "Quantity" });
+                    dgvItems.Columns.Add(new DataGridViewTextBoxColumn { HeaderText = "Description", DataPropertyName = "Description", Name = "Description" });
+
+
+                    // Create the Edit Button Column
+                    DataGridViewButtonColumn editButtonColumn = new DataGridViewButtonColumn();
+                    editButtonColumn.Name = "Edit"; // Ensure the name is "Edit"
+                    editButtonColumn.HeaderText = "";
+                    editButtonColumn.Text = "Edit";
+                    editButtonColumn.UseColumnTextForButtonValue = true; // Show text on buttons
+                    dgvItems.Columns.Add(editButtonColumn);
+
+                    dgvItems.DataSource = items;
+
+                    // Styling (you can style as before)
+                    dgvItems.EnableHeadersVisualStyles = false;
+                    dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(72, 168, 255);
+                    dgvItems.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvItems.ColumnHeadersDefaultCellStyle.Font = new Font("Arial", 10, FontStyle.Bold);
+                    dgvItems.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+                    dgvItems.ColumnHeadersHeight = 40;
+
+                    dgvItems.DefaultCellStyle.BackColor = Color.White;
+                    dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(240, 240, 240);
+                    dgvItems.DefaultCellStyle.ForeColor = Color.Black;
+                    dgvItems.DefaultCellStyle.Font = new Font("Arial", 9);
+                    dgvItems.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 120, 215);
+                    dgvItems.DefaultCellStyle.SelectionForeColor = Color.White;
+
+                    dgvItems.GridColor = Color.FromArgb(200, 200, 200);
+                    dgvItems.CellBorderStyle = DataGridViewCellBorderStyle.Single;
+
+                    dgvItems.RowTemplate.Height = 30;
+
+                }
+                else
+                {
+                    MessageBox.Show("Error: Unable to load data from the server.");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"An error occurred: {ex.Message}");
             }
         }
+
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -88,17 +142,17 @@ namespace StoreClient
 
         private void dgvItems_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int r = e.RowIndex;
-            int c = e.ColumnIndex;
-            if (c == 0)
+            if (e.RowIndex >= 0 && dgvItems.Columns[e.ColumnIndex].Name == "Edit")
             {
-                txtID.Text = dgvItems.Rows[r].Cells[1].Value.ToString();
-                txtName.Text = dgvItems.Rows[r].Cells[2].Value.ToString();
-                txtPrice.Text = dgvItems.Rows[r].Cells[3].Value.ToString();
-                txtQuantity.Text = dgvItems.Rows[r].Cells[4].Value.ToString();
-                txtDes.Text = dgvItems.Rows[r].Cells[5].Value.ToString();
+                // Get the selected row's data
+                txtID.Text = dgvItems.Rows[e.RowIndex].Cells["Id"].Value.ToString();
+                txtName.Text = dgvItems.Rows[e.RowIndex].Cells["Name"].Value.ToString();
+                txtPrice.Text = dgvItems.Rows[e.RowIndex].Cells["Price"].Value.ToString();
+                txtQuantity.Text = dgvItems.Rows[e.RowIndex].Cells["Quantity"].Value.ToString();
+                txtDes.Text = dgvItems.Rows[e.RowIndex].Cells["Description"].Value.ToString();
             }
         }
+
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
