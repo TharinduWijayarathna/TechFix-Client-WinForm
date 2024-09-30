@@ -106,6 +106,15 @@
     <EmbeddedResource Include="Form\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form\OrderForm.resx">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\OrderItemForm.resx">
+      <DependentUpon>OrderItemForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\QuotationForm.resx">
+      <DependentUpon>QuotationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form\QuoteRequestForm.resx">
       <DependentUpon>QuoteRequestForm.cs</DependentUpon>
     </EmbeddedResource>

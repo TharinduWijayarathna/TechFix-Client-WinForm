@@ -53,7 +53,8 @@ namespace StoreClient
                 QuoteRequest item = new QuoteRequest
                 {
                     Name = txtName.Text,
-                    Date = dateTimePicker1.Value
+                    Date = dateTimePicker1.Value,
+                    SupplierId = comboBox1.SelectedIndex + 1
                 };
 
                 string info = JsonConvert.SerializeObject(item);
@@ -65,10 +66,10 @@ namespace StoreClient
                     if (response.IsSuccessStatusCode)
                     {
                         MessageBox.Show("Quote Request added successfully");
-                        LoadData(); 
+                        LoadData();
                     }
                     else
-                    { 
+                    {
                         var errorContent = await response.Content.ReadAsStringAsync();
                         MessageBox.Show($"Failed to add Quote Request: {response.StatusCode} - {errorContent}");
                     }
@@ -140,7 +141,8 @@ namespace StoreClient
         private void btnDelete_Click(object sender, EventArgs e)
         {
             string url = "https://localhost:7135/api/QuoteRequest/" + txtID.Text;
-            using (HttpClient client = new HttpClient()) {
+            using (HttpClient client = new HttpClient())
+            {
                 try
                 {
                     var response = client.DeleteAsync(url).Result;
