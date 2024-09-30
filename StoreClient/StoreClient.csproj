@@ -71,6 +71,18 @@
     <Compile Include="Model\QuoteRequest.cs" />
     <Compile Include="Model\QuoteRequestItem.cs" />
     <Compile Include="Model\Stock.cs" />
+    <Compile Include="Form\OrderForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\OrderForm.Designer.cs">
+      <DependentUpon>OrderForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\OrderItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\OrderItemForm.Designer.cs">
+      <DependentUpon>OrderItemForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Form\QuoteRequestForm.cs">
@@ -84,6 +96,12 @@
     </Compile>
     <Compile Include="Form\QuoteRequestItemForm.Designer.cs">
       <DependentUpon>QuoteRequestItemForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form\QuotationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\QuotationForm.Designer.cs">
+      <DependentUpon>QuotationForm.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Form\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
