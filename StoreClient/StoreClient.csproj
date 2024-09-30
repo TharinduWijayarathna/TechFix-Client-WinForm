@@ -103,6 +103,12 @@
     <Compile Include="Form\QuotationForm.Designer.cs">
       <DependentUpon>QuotationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\QuotationItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\QuotationItemForm.Designer.cs">
+      <DependentUpon>QuotationItemForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -114,6 +120,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form\QuotationForm.resx">
       <DependentUpon>QuotationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\QuotationItemForm.resx">
+      <DependentUpon>QuotationItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\QuoteRequestForm.resx">
       <DependentUpon>QuoteRequestForm.cs</DependentUpon>

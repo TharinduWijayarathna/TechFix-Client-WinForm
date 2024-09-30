@@ -56,6 +56,7 @@
             this.label1.Size = new System.Drawing.Size(71, 26);
             this.label1.TabIndex = 0;
             this.label1.Text = "Name";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // txtName
             // 
@@ -63,6 +64,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(214, 32);
             this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
             // 
             // txtPrice
             // 
@@ -70,6 +72,7 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(214, 32);
             this.txtPrice.TabIndex = 3;
+            this.txtPrice.TextChanged += new System.EventHandler(this.txtPrice_TextChanged);
             // 
             // label2
             // 
@@ -80,6 +83,7 @@
             this.label2.Size = new System.Drawing.Size(62, 26);
             this.label2.TabIndex = 2;
             this.label2.Text = "Price";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // txtStock
             // 
@@ -87,6 +91,7 @@
             this.txtStock.Name = "txtStock";
             this.txtStock.Size = new System.Drawing.Size(214, 32);
             this.txtStock.TabIndex = 5;
+            this.txtStock.TextChanged += new System.EventHandler(this.txtStock_TextChanged);
             // 
             // label3
             // 
@@ -97,6 +102,7 @@
             this.label3.Size = new System.Drawing.Size(93, 26);
             this.label3.TabIndex = 4;
             this.label3.Text = "Quantity";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // txtDes
             // 
@@ -105,6 +111,7 @@
             this.txtDes.Name = "txtDes";
             this.txtDes.Size = new System.Drawing.Size(214, 104);
             this.txtDes.TabIndex = 7;
+            this.txtDes.TextChanged += new System.EventHandler(this.txtDes_TextChanged);
             // 
             // label4
             // 
@@ -115,6 +122,7 @@
             this.label4.Size = new System.Drawing.Size(121, 26);
             this.label4.TabIndex = 6;
             this.label4.Text = "Description";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // btnAdd
             // 
@@ -160,6 +168,7 @@
             this.txtID.ReadOnly = true;
             this.txtID.Size = new System.Drawing.Size(214, 32);
             this.txtID.TabIndex = 12;
+            this.txtID.TextChanged += new System.EventHandler(this.txtID_TextChanged);
             // 
             // label5
             // 
@@ -170,6 +179,7 @@
             this.label5.Size = new System.Drawing.Size(34, 26);
             this.label5.TabIndex = 11;
             this.label5.Text = "ID";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // btnDelete
             // 

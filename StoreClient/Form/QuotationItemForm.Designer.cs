@@ -1,6 +1,6 @@
 ﻿namespace StoreClient
 {
-    partial class QuotationForm
+    partial class QuotationItemForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -37,28 +36,21 @@
             // 
             this.dgvItems.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.View});
-            this.dgvItems.Location = new System.Drawing.Point(12, 12);
+            this.dgvItems.Location = new System.Drawing.Point(12, 8);
             this.dgvItems.Name = "dgvItems";
-            this.dgvItems.Size = new System.Drawing.Size(767, 439);
-            this.dgvItems.TabIndex = 36;
+            this.dgvItems.Size = new System.Drawing.Size(672, 439);
+            this.dgvItems.TabIndex = 24;
             this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
             // 
-            // View
-            // 
-            this.View.HeaderText = "View";
-            this.View.Name = "View";
-            // 
-            // QuotationForm
+            // QuotationItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 457);
+            this.ClientSize = new System.Drawing.Size(695, 459);
             this.Controls.Add(this.dgvItems);
-            this.Name = "QuotationForm";
-            this.Text = "QuotationForm";
-            this.Load += new System.EventHandler(this.QuotationForm_Load);
+            this.Name = "QuotationItemForm";
+            this.Text = "QuotationItemForm";
+            this.Load += new System.EventHandler(this.QuotationItemForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
 
@@ -66,6 +58,5 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewButtonColumn View;
     }
 }
