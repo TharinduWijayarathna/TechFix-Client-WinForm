@@ -65,6 +65,7 @@
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Model\QuoteRequest.cs" />
+    <Compile Include="Model\QuoteRequestItem.cs" />
     <Compile Include="Model\Stock.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -74,11 +75,20 @@
     <Compile Include="Form\QuoteRequestForm.Designer.cs">
       <DependentUpon>QuoteRequestForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form\QuoteRequestItemForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form\QuoteRequestItemForm.Designer.cs">
+      <DependentUpon>QuoteRequestItemForm.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Form\HomeForm.resx">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\QuoteRequestForm.resx">
       <DependentUpon>QuoteRequestForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form\QuoteRequestItemForm.resx">
+      <DependentUpon>QuoteRequestItemForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form\StockForm.resx">
       <DependentUpon>StockForm.cs</DependentUpon>

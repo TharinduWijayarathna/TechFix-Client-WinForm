@@ -90,6 +90,14 @@ namespace StoreClient
                 txtName.Text = dgvItems.Rows[r].Cells[2].Value.ToString();
                 dateTimePicker1.Value = Convert.ToDateTime(dgvItems.Rows[r].Cells[3].Value);
             }
+
+            //if c == 1 pass the id to the next form
+            if (c == 1)
+            {
+                int id = Convert.ToInt32(dgvItems.Rows[r].Cells[2].Value);
+                QuoteRequestItemForm form = new QuoteRequestItemForm(id);
+                form.Show();
+            }
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
