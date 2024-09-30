@@ -30,6 +30,7 @@
         {
             this.dgvItems = new System.Windows.Forms.DataGridView();
             this.View = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,11 +51,22 @@
             this.View.HeaderText = "View";
             this.View.Name = "View";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(683, 457);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 34);
+            this.button1.TabIndex = 37;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // QuotationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(791, 457);
+            this.ClientSize = new System.Drawing.Size(785, 499);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvItems);
             this.Name = "QuotationForm";
             this.Text = "QuotationForm";
@@ -67,5 +79,6 @@
         #endregion
         private System.Windows.Forms.DataGridView dgvItems;
         private System.Windows.Forms.DataGridViewButtonColumn View;
+        private System.Windows.Forms.Button button1;
     }
 }

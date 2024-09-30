@@ -87,9 +87,10 @@ namespace StoreClient
             int c = e.ColumnIndex;
             if (c == 0)
             {
-                txtID.Text = dgvItems.Rows[r].Cells[1].Value.ToString();
-                txtName.Text = dgvItems.Rows[r].Cells[2].Value.ToString();
-                dateTimePicker1.Value = Convert.ToDateTime(dgvItems.Rows[r].Cells[3].Value);
+                txtID.Text = dgvItems.Rows[r].Cells[2].Value.ToString();
+                txtName.Text = dgvItems.Rows[r].Cells[3].Value.ToString();
+                dateTimePicker1.Value = Convert.ToDateTime(dgvItems.Rows[r].Cells[4].Value);
+                comboBox1.SelectedIndex = Convert.ToInt32(dgvItems.Rows[r].Cells[5].Value) - 1;
             }
 
             //if c == 1 pass the id to the next form

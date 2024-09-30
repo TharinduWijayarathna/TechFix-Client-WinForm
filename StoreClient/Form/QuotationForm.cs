@@ -46,8 +46,10 @@ namespace StoreClient
             if (c == 0)
             {
                 int id = Convert.ToInt32(dgvItems.Rows[r].Cells[1].Value);
-                QuotationItemForm form = new QuotationItemForm(id);
-                form.Show();
+                this.Hide();
+                QuotationItemForm form = new QuotationItemForm(id);             
+                form.ShowDialog();
+                this.Close();
             }
         }
 
@@ -56,5 +58,13 @@ namespace StoreClient
             LoadData();
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm form = new HomeForm();
+            form.ShowDialog();
+            this.Close();
+          
+        }
     }
 }

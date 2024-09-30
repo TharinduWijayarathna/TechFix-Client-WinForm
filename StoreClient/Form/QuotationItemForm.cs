@@ -75,5 +75,14 @@ namespace StoreClient
         {
 
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuotationForm Form = new QuotationForm();
+            Form.ShowDialog();
+            this.Close();
+
+        }
     }
 }

@@ -40,7 +40,10 @@ namespace StoreClient
 
         private void button3_Click(object sender, EventArgs e)
         {
-
+            this.Hide();
+            OrderForm orderForm = new OrderForm();
+            orderForm.ShowDialog();
+            this.Close();
         }
 
         private void button5_Click(object sender, EventArgs e)
