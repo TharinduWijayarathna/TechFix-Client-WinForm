@@ -4,14 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoreClient
+namespace StoreClient.Model
 {
-    internal class Item
+    internal class QuoteRequest
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public decimal Price { get; set; }
-        public int Quantity { get; set; }
-        public string Description { get; set; }
+        public DateTime Date { get; set; }
     }
 }
