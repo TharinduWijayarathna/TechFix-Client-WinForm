@@ -111,5 +111,13 @@ namespace StoreClient
             else
                 MessageBox.Show("Fail to Delete");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeForm = new HomeForm();
+            homeForm.ShowDialog();
+            this.Close();
+        }
     }
 }

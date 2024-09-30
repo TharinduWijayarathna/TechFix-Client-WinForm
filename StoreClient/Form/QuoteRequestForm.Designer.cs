@@ -40,12 +40,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.Add = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(238, 152);
+            this.btnDelete.Location = new System.Drawing.Point(253, 152);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 43);
             this.btnDelete.TabIndex = 27;
@@ -73,9 +74,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(126, 152);
+            this.btnUpdate.Location = new System.Drawing.Point(132, 152);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 43);
+            this.btnUpdate.Size = new System.Drawing.Size(115, 43);
             this.btnUpdate.TabIndex = 24;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -101,9 +102,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(19, 152);
+            this.btnAdd.Location = new System.Drawing.Point(12, 152);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 43);
+            this.btnAdd.Size = new System.Drawing.Size(114, 43);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Save";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -148,11 +149,22 @@
             this.Add.HeaderText = "Add";
             this.Add.Name = "Add";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 201);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(341, 43);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // QuoteRequestForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(994, 458);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtID);
@@ -186,5 +198,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DataGridViewButtonColumn Add;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -161,5 +161,13 @@ namespace StoreClient
                 }
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            HomeForm homeForm = new HomeForm();
+            homeForm.ShowDialog();
+            this.Close();
+        }
     }
 }

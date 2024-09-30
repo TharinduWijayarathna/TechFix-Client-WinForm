@@ -149,5 +149,13 @@ namespace StoreClient
                 txtDes.Text = dgvItems.Rows[r].Cells[5].Value.ToString();
             }
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            QuoteRequestForm quoteRequestForm = new QuoteRequestForm();
+            quoteRequestForm.ShowDialog();
+            this.Close();
+        }
     }
 }

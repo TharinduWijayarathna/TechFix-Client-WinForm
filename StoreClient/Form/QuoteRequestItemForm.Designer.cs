@@ -41,14 +41,15 @@
             this.label3 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(249, 297);
+            this.btnDelete.Location = new System.Drawing.Point(238, 297);
             this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(100, 43);
+            this.btnDelete.Size = new System.Drawing.Size(111, 43);
             this.btnDelete.TabIndex = 27;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -74,9 +75,9 @@
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(137, 297);
+            this.btnUpdate.Location = new System.Drawing.Point(124, 297);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(100, 43);
+            this.btnUpdate.Size = new System.Drawing.Size(108, 43);
             this.btnUpdate.TabIndex = 24;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -101,9 +102,9 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(30, 297);
+            this.btnAdd.Location = new System.Drawing.Point(12, 297);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(101, 43);
+            this.btnAdd.Size = new System.Drawing.Size(106, 43);
             this.btnAdd.TabIndex = 22;
             this.btnAdd.Text = "Save";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -161,11 +162,22 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Name";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 346);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(337, 43);
+            this.button1.TabIndex = 28;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // QuoteRequestItemForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(990, 461);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.txtID);
             this.Controls.Add(this.label5);
@@ -202,5 +214,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }
