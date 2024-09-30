@@ -64,6 +64,10 @@
     <Compile Include="Form\HomeForm.Designer.cs">
       <DependentUpon>HomeForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\OrderItem.cs" />
+    <Compile Include="Model\Quotation.cs" />
+    <Compile Include="Model\QuotationItem.cs" />
     <Compile Include="Model\QuoteRequest.cs" />
     <Compile Include="Model\QuoteRequestItem.cs" />
     <Compile Include="Model\Stock.cs" />

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoreClient.Model
 {
-    internal class QuoteRequest
+    internal class Quotation
     {
         public int Id { get; set; }
         public string Name { get; set; }
