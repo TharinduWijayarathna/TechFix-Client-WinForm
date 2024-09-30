@@ -16,7 +16,7 @@ namespace StoreClient
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new HomeForm());
+            Application.Run(new LoginForm());
         }
     }
 }
