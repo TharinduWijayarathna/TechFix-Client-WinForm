@@ -50,13 +50,13 @@ namespace StoreClient
                     var response = await client.PostAsync(url, content);
                     if (response.IsSuccessStatusCode)
                     {
-                        MessageBox.Show("Quote Request added successfully");
+                        MessageBox.Show("Quote Request Item added successfully");
                         LoadData();
                     }
                     else
                     {
                         var errorContent = await response.Content.ReadAsStringAsync();
-                        MessageBox.Show($"Failed to add Quote Request: {response.StatusCode} - {errorContent}");
+                        MessageBox.Show($"Failed to add Quote Request Item: {response.StatusCode} - {errorContent}");
                     }
                 }
                 catch (Exception ex)
@@ -81,12 +81,51 @@ namespace StoreClient
                 dgvItems.DataSource = null;
                 dgvItems.DataSource = (new JavaScriptSerializer()).
                                         Deserialize<List<QuoteRequestItem>>(items);
+
+                AddActionColumn();
             }
         }
 
         private void QuoteRequestItemForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            CustomizeDataGridView();
+        }
+
+        private void CustomizeDataGridView()
+        {
+            dgvItems.EnableHeadersVisualStyles = false;
+            dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+            dgvItems.ColumnHeadersDefaultCellStyle.Font = new Font("Gabriola", 13, FontStyle.Bold);
+            dgvItems.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvItems.DefaultCellStyle.Font = new Font("Gabriola", 12, FontStyle.Regular);
+            dgvItems.DefaultCellStyle.ForeColor = Color.Black;
+            dgvItems.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvItems.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            dgvItems.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvItems.RowTemplate.Height = 30;
+            dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            AddActionColumn();
+        }
+
+        private void AddActionColumn()
+        {
+            // Remove existing action column if it exists
+            if (dgvItems.Columns["EditColumn"] != null)
+                dgvItems.Columns.Remove("EditColumn");
+
+            // Add Edit button column
+            DataGridViewButtonColumn editButton = new DataGridViewButtonColumn();
+            editButton.Name = "EditColumn";
+            editButton.HeaderText = "Action";
+            editButton.Text = "Edit";
+            editButton.UseColumnTextForButtonValue = true;
+            dgvItems.Columns.Add(editButton);
         }
 
         private void btnUpdate_Click(object sender, EventArgs e)
@@ -109,13 +148,13 @@ namespace StoreClient
             var response = client.PutAsync(url, content).Result;
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Quote Request updated successfully");
+                MessageBox.Show("Quote Request Item updated successfully");
                 LoadData();
             }
             else
             {
                 var errorContent = response.Content.ReadAsStringAsync().Result;
-                MessageBox.Show($"Failed to update Quote Request: {response.StatusCode} - {errorContent}");
+                MessageBox.Show($"Failed to update Quote Request Item: {response.StatusCode} - {errorContent}");
             }
         }
 
@@ -127,13 +166,13 @@ namespace StoreClient
             var response = client.DeleteAsync(url).Result;
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Quote Request deleted successfully");
+                MessageBox.Show("Quote Request Item deleted successfully");
                 LoadData();
             }
             else
             {
                 var errorContent = response.Content.ReadAsStringAsync().Result;
-                MessageBox.Show($"Failed to delete Quote Request: {response.StatusCode} - {errorContent}");
+                MessageBox.Show($"Failed to delete Quote Request Item: {response.StatusCode} - {errorContent}");
             }
         }
 
@@ -141,12 +180,12 @@ namespace StoreClient
         {
             int r = e.RowIndex;
             int c = e.ColumnIndex;
-            if (c == 0)
+            if (c == dgvItems.Columns.Count - 1)
             {
-                txtID.Text = dgvItems.Rows[r].Cells[1].Value.ToString();
-                txtName.Text = dgvItems.Rows[r].Cells[2].Value.ToString();
-                txtQuantity.Text = dgvItems.Rows[r].Cells[4].Value.ToString();
-                txtDes.Text = dgvItems.Rows[r].Cells[5].Value.ToString();
+                txtID.Text = dgvItems.Rows[r].Cells["Id"].Value.ToString();
+                txtName.Text = dgvItems.Rows[r].Cells["Name"].Value.ToString();
+                txtQuantity.Text = dgvItems.Rows[r].Cells["Quantity"].Value.ToString();
+                txtDes.Text = dgvItems.Rows[r].Cells["Description"].Value.ToString();
             }
         }
 
