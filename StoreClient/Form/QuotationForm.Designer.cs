@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.dgvItems = new System.Windows.Forms.DataGridView();
-            this.View = new System.Windows.Forms.DataGridViewButtonColumn();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).BeginInit();
             this.SuspendLayout();
@@ -38,21 +37,15 @@
             // 
             this.dgvItems.BackgroundColor = System.Drawing.SystemColors.Window;
             this.dgvItems.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvItems.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.View});
-            this.dgvItems.Location = new System.Drawing.Point(12, 12);
+            this.dgvItems.Location = new System.Drawing.Point(5, 5);
             this.dgvItems.Name = "dgvItems";
-            this.dgvItems.Size = new System.Drawing.Size(767, 439);
+            this.dgvItems.Size = new System.Drawing.Size(774, 446);
             this.dgvItems.TabIndex = 36;
             this.dgvItems.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvItems_CellContentClick);
             // 
-            // View
-            // 
-            this.View.HeaderText = "View";
-            this.View.Name = "View";
-            // 
             // button1
             // 
+            this.button1.Font = new System.Drawing.Font("Gabriola", 12F, System.Drawing.FontStyle.Bold);
             this.button1.Location = new System.Drawing.Point(683, 457);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 34);
@@ -65,11 +58,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(785, 499);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.ClientSize = new System.Drawing.Size(785, 496);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dgvItems);
             this.Name = "QuotationForm";
-            this.Text = "QuotationForm";
+            this.Text = "Quotations";
             this.Load += new System.EventHandler(this.QuotationForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItems)).EndInit();
             this.ResumeLayout(false);
@@ -78,7 +72,6 @@
 
         #endregion
         private System.Windows.Forms.DataGridView dgvItems;
-        private System.Windows.Forms.DataGridViewButtonColumn View;
         private System.Windows.Forms.Button button1;
     }
 }

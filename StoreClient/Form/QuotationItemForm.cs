@@ -49,6 +49,26 @@ namespace StoreClient
         private void QuotationItemForm_Load(object sender, EventArgs e)
         {
             LoadData(quotationId);
+            CustomizeDataGridView();
+        }
+
+        private void CustomizeDataGridView()
+        {
+            dgvItems.EnableHeadersVisualStyles = false;
+            dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+            dgvItems.ColumnHeadersDefaultCellStyle.Font = new Font("Gabriola", 13, FontStyle.Bold);
+            dgvItems.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvItems.DefaultCellStyle.Font = new Font("Gabriola", 12, FontStyle.Regular);
+            dgvItems.DefaultCellStyle.ForeColor = Color.Black;
+            dgvItems.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvItems.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            dgvItems.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvItems.RowTemplate.Height = 30;
+            dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

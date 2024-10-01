@@ -36,6 +36,8 @@ namespace StoreClient
                 dgvItems.DataSource = null;
                 dgvItems.DataSource = (new JavaScriptSerializer()).
                                         Deserialize<List<Quotation>>(items);
+
+                AddActionColumn();
             }
         }
 
@@ -43,9 +45,9 @@ namespace StoreClient
         {
             int r = e.RowIndex;
             int c = e.ColumnIndex;
-            if (c == 0)
+            if (c == dgvItems.Columns.Count -1)
             {
-                int id = Convert.ToInt32(dgvItems.Rows[r].Cells[1].Value);
+                int id = Convert.ToInt32(dgvItems.Rows[r].Cells["Id"].Value);
                 this.Hide();
                 QuotationItemForm form = new QuotationItemForm(id);             
                 form.ShowDialog();
@@ -56,8 +58,44 @@ namespace StoreClient
         private void QuotationForm_Load(object sender, EventArgs e)
         {
             LoadData();
+            CustomizeDataGridView();
         }
 
+        private void CustomizeDataGridView()
+        {
+            dgvItems.EnableHeadersVisualStyles = false;
+            dgvItems.ColumnHeadersDefaultCellStyle.BackColor = Color.LightGray;
+            dgvItems.ColumnHeadersDefaultCellStyle.Font = new Font("Gabriola", 13, FontStyle.Bold);
+            dgvItems.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+            dgvItems.DefaultCellStyle.Font = new Font("Gabriola", 12, FontStyle.Regular);
+            dgvItems.DefaultCellStyle.ForeColor = Color.Black;
+            dgvItems.DefaultCellStyle.BackColor = Color.WhiteSmoke;
+            dgvItems.DefaultCellStyle.SelectionBackColor = Color.LightBlue;
+            dgvItems.DefaultCellStyle.SelectionForeColor = Color.Black;
+
+            dgvItems.RowTemplate.Height = 30;
+            dgvItems.AlternatingRowsDefaultCellStyle.BackColor = Color.AliceBlue;
+
+            dgvItems.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            AddActionColumn();
+        }
+
+        private void AddActionColumn()
+        {
+            // Remove existing action column if it exists
+            if (dgvItems.Columns["ViewItemsColumn"] != null)
+                dgvItems.Columns.Remove("ViewItemsColumn");
+
+            // Add Edit button column
+            DataGridViewButtonColumn viewItemsButton = new DataGridViewButtonColumn();
+            viewItemsButton.Name = "ViewItemsColumn";
+            viewItemsButton.HeaderText = "Action";
+            viewItemsButton.Text = "View Items";
+            viewItemsButton.UseColumnTextForButtonValue = true;
+            dgvItems.Columns.Add(viewItemsButton);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
