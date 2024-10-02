@@ -147,7 +147,8 @@ namespace StoreClient
                 int id = Convert.ToInt32(dgvItems.Rows[r].Cells["Id"].Value);
                 this.Hide();
                 QuoteRequestItemForm form = new QuoteRequestItemForm(id);
-                form.Show();
+                form.ShowDialog();
+                this.Close();
             }
         }
 

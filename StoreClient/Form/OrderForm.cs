@@ -140,7 +140,8 @@ namespace StoreClient
                 Order item = new Order
                 {
                     Name = txtName.Text,
-                    Date = dateTimePicker1.Value
+                    Date = dateTimePicker1.Value,
+                    SupplierId = comboBox1.SelectedIndex + 1
                 };
 
                 string info = JsonConvert.SerializeObject(item);
@@ -214,8 +215,10 @@ namespace StoreClient
             else if (c == dgvItems.Columns.Count - 1)
             {
                 int id = Convert.ToInt32(dgvItems.Rows[r].Cells["Id"].Value);
+                this.Hide();
                 OrderItemForm form = new OrderItemForm(id);
-                form.Show();
+                form.ShowDialog();
+                this.Close();
             }
         }
     }
